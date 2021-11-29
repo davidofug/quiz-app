@@ -1,19 +1,18 @@
 const express = require('express');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 require('dotenv').config();
-
-const User = require('./models/user')
-
-const { MONGODB_URL } = process.env;
+const dbConnect = require('./config/db');
+const User = require('./models/user');
+const routerUser = require('./routes/user');
+try {
+    dbConnect()
+} catch (error) {
+    console.log(error)
+}
 
 const app = express();
-const port = 3002;
+const port = process.env.PORT || 3002;
 
-try {
-    mongoose.connect(MONGODB_URL, { useNewUrlParser: true });
-} catch (error) {
-    console.log(error);
-}
 // Middleware
 app.use(express.json());
 
@@ -21,29 +20,7 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-app.get('/users/username/:username', async (req, res) => {
-    const { username } = req.params
-    try {
-        const user = await User.getUser(username);
-
-        if (user !== null)
-            return res.json({
-                'result': 'success',
-                'user': user
-            });
-
-        return res.json({
-            'result': 'failure',
-            'message': `${username} not found`
-        });
-    } catch (error) {
-        // console.log(error);
-        return res.json({
-            'result': 'failure',
-            'message': `user: ${username} not found`
-        });
-    }
-});
+app.use('/users', routerUser);
 
 app.post('/login', async (req, res) => {
     res.json({'message':'under development'})
