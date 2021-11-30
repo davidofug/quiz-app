@@ -1,4 +1,4 @@
-GET http://localhost:3002
+GET http://localhost:3002/users
 
 ### Get user by username
 GET http://localhost:3002/users/username/davidofug
@@ -7,15 +7,15 @@ GET http://localhost:3002/users/username/davidofug
 GET http://localhost:3002/users/id/61a4e20d1e5ccecbd8765dc7
 
 ### Get login
-POST http://localhost:3002/login
+POST http://localhost:3002/users/login
 ### The below won't work because we've not defined the post method for the endpoint /
 POST http://localhost:3002
 ### But the below will work because we've defined the endpoint /register
-POST http://localhost:3002/register
+POST http://localhost:3002/users/register
 Content-Type: application/json
 
 {
-    "username": "davidofug",
+    "username": "wampamba",
     "password": "123@P@ss"
 }
 ### DELETE Request
@@ -43,3 +43,6 @@ Content-Type: application/json
 {
     "username": "Wampamba"
 }
+
+### Get all quiz
+http://localhost:3002/quiz/quizzes
