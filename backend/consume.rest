@@ -44,5 +44,9 @@ Content-Type: application/json
     "username": "Wampamba"
 }
 
-### Get all quiz
-http://localhost:3002/tests
+### Get all exams in the system
+http://localhost:3002/exams
+### Get all exams for author
+http://localhost:3002/exams/davidofug
+### Get exam by id
+http://localhost:3002/exams/exam/xdd2123232
