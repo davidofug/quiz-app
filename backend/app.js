@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/users', routerUser);
-app.use('/test', routerTest);
+app.use('/tests', routerTest);
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });

@@ -45,4 +45,4 @@ Content-Type: application/json
 }
 
 ### Get all quiz
-http://localhost:3002/quiz/quizzes
+http://localhost:3002/tests
