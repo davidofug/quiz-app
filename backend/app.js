@@ -2,7 +2,7 @@ const express = require('express');
 require('dotenv').config();
 const dbConnect = require('./config/db');
 const routerUser = require('./routes/user');
-const routerQuiz = require('./routes/quiz');
+const routerTest = require('./routes/test');
 try {
     dbConnect()
 } catch (error) {
@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/users', routerUser);
-app.use('/quiz', routerQuiz);
+app.use('/test', routerTest);
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
