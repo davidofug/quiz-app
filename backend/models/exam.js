@@ -14,7 +14,7 @@ const examSchema = mongoose.Schema({
         required: true,
     },
     allowedStudents: [],
-    exams: {
+    questions: {
         type: Array,
         number: {
             type: Number,
@@ -61,6 +61,7 @@ const examSchema = mongoose.Schema({
                 type: String,
                 required: 1
             },
+            answer: String,
             status: {
                 type: Boolean
             },
