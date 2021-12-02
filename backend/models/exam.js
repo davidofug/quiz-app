@@ -62,9 +62,7 @@ const examSchema = mongoose.Schema({
                 required: 1
             },
             answer: String,
-            status: {
-                type: Boolean
-            },
+            status: String,
             duration: {
                 type: Number,
                 required: 1,
